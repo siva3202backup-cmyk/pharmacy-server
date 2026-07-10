@@ -1,1 +1,1 @@
-const db=require('../config/db');exports.profile=async(req,res,next)=>{try{const r=await db.query('select id,name,email,role,created_at from users where id=$1',[req.user.id]);res.json(r.rows[0]);}catch(e){next(e);}};
+const db=require('../config/db');exports.profile=async(req,res,next)=>{try{const r=await db.query('select id,name,email,role,created_at from users where id=$1',[req.user.id]);res.json(r.rows[0])}catch(e){next(e)}};

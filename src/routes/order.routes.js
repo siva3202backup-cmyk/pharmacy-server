@@ -1,1 +1,1 @@
-const router=require('express').Router();const c=require('../controllers/order.controller');const auth=require('../middleware/auth');const admin=require('../middleware/admin');router.post('/',auth,c.create);router.get('/my',auth,c.my);router.get('/',auth,admin,c.all);module.exports=router;
+const r=require('express').Router(),c=require('../controllers/order.controller'),auth=require('../middleware/auth'),admin=require('../middleware/admin');r.post('/',auth,c.create);r.get('/my',auth,c.my);r.get('/',auth,admin,c.all);module.exports=r;

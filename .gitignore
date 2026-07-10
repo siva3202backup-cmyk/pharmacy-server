@@ -1,4 +1,9 @@
 node_modules/
-git rm -r --cached node_modules
-git add .gitignore
-git commit -m "Stop tracking node_modules"
+coverage/
+dist/
+.env.local
+npm-debug.log*
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
