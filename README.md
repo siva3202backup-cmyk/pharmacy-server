@@ -1,22 +1,14 @@
-# MediMart Pharmacy Express PostgreSQL Server
+# Pharmacy Express PostgreSQL Server
 
-## Important fix for SCRAM password error
-This project converts the PostgreSQL password to a string and loads `.env` from the server root. Your `.env` is already set to:
-`DATABASE_URL=postgres://postgres:postgres@localhost:5432/pharmacy_db`
-
-## Local setup
+## Run
 ```bash
 npm install
-createdb pharmacy_db
-psql "postgres://postgres:postgres@localhost:5432/pharmacy_db" -f database/schema.sql
-npm run db:seed:node
+psql "postgres://postgres:postgres@localhost:5432/pharmacy_db" -f database/pharmacy_extend_schema.sql
 npm start
 ```
 
-## Test
-```bash
-curl http://localhost:5000/api/health
-curl "http://localhost:5000/api/products?search=vitamin"
-```
+Health: http://localhost:5000/api/health
 
-Admin login: `admin@pharmacy.test` / `Admin@123`.
+Admin login: admin@pharmacy.test / Admin@123
+
+APIs included: /api/products, /api/categories, /api/brands, /api/cart, /api/orders, /api/payments, /api/reviews, /api/wishlist, /api/coupons, /api/reports, /api/users, /api/admin.

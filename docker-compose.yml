@@ -7,11 +7,6 @@ services:
       POSTGRES_DB: pharmacy_db
     ports: ["5432:5432"]
     volumes: ["pgdata:/var/lib/postgresql/data"]
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d pharmacy_db"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
   server:
     build: .
     environment:
@@ -19,9 +14,6 @@ services:
       CLIENT_ORIGIN: http://localhost:4200
       DATABASE_URL: postgres://postgres:postgres@db:5432/pharmacy_db
       JWT_SECRET: mynameissivakumar
-      JWT_EXPIRES_IN: 1d
     ports: ["5000:5000"]
-    depends_on:
-      db:
-        condition: service_healthy
+    depends_on: [db]
 volumes: { pgdata: {} }
